@@ -1,0 +1,32 @@
+.filterBox {
+  width: 360px;
+}
+
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.locationHeader {
+  align-self: stretch;
+  color: rgba(16, 24, 40, 0.6);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+.locationInput {
+  display: flex;
+  padding: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 10px;
+  background: #f7f7f7;
+  width: 360px;
+}

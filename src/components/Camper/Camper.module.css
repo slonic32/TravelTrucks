@@ -1,0 +1,178 @@
+.camper {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  background: #fff;
+  width: 890px;
+}
+
+.camperCard {
+  display: flex;
+  width: 840px;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.camperImg {
+  width: 290px;
+  height: 310px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.camperDetails {
+  display: flex;
+  width: 526px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.camperHeader {
+  display: flex;
+  width: 526px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.headerUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1px;
+  align-self: stretch;
+}
+
+.camperName {
+  color: #101828;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  width: auto;
+}
+
+.priceBlock {
+  display: flex;
+  width: 158px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.camperPrice {
+  color: #101828;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.camperFav {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #fff;
+}
+
+.favIconN {
+  fill: #fff;
+  stroke: #101828;
+}
+
+.favIconY {
+  fill: #e44848;
+  stroke: #e44848;
+}
+
+.headerDown {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.reviewBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.revieStar {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+  stroke: #ffc531;
+}
+
+.reviewText {
+  color: #101828;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration-line: underline;
+}
+
+.locationBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #101828;
+
+  fill: none;
+}
+
+.locationText {
+  color: #101828;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.camperText {
+  display: -webkit-box;
+  width: 525px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: #475467;
+  text-overflow: ellipsis;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}

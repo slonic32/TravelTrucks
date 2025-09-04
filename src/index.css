@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  display: block;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+label,
+input {
+  display: block;
+}
+
+a:active,
+a.active {
+  color: #e44848;
+}
