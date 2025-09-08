@@ -23,7 +23,7 @@ export default function Camper({ camper, favorite = false }) {
   const navigate = useNavigate();
 
   const goToDetails = () => {
-    navigate(`/catalog/${camper.id}`);
+    navigate(`/catalog/${camper.id}/features`);
   };
 
   return (

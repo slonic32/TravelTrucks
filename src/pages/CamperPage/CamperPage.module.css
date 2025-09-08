@@ -8,10 +8,9 @@
 .block {
   display: flex;
   gap: 40px;
-  margin-top: 44px;
 }
 
-.leftBlock {
-  width: 631px;
-  height: 588px;
+.divider {
+  stroke-width: 1px;
+  stroke: #dadde1;
 }

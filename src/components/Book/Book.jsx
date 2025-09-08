@@ -1,25 +1,26 @@
 import css from "./Book.module.css";
-import ButtonSearch from "../ButtonSearch/ButtonSearch";
-import Location from "../Location/Location";
-import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { useId } from "react";
-import { fetchCampers } from "../../redux/campers/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
-import icon from "../../assets/icon.svg";
+import ButtonSend from "../ButtonSend/ButtonSend";
 
 export default function Book() {
   const initialValues = {
-    location: "",
+    name: "",
+    email: "",
+    date: "",
+    comment: "",
   };
+
   const filterSchema = Yup.object().shape({
-    location: Yup.string().max(50, "Too Long!"),
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    date: Yup.date().required("Date is required"),
+    comment: Yup.string().max(500, "Too long!"),
   });
 
-  const locationId = useId();
-
-  function handleSubmit(values) {}
+  function handleSubmit(values) {
+    console.log("Submitted:", values);
+  }
 
   return (
     <Formik
@@ -27,28 +28,51 @@ export default function Book() {
       onSubmit={handleSubmit}
       validationSchema={filterSchema}
     >
-      <Form className={css.box}>
+      <Form className={css.block}>
+        <h3 className={css.bookHeader}>Book your campervan now</h3>
+        <p className={css.bookP}>
+          Stay connected! We are always ready to help you.
+        </p>
+
         <div className={css.locationContainer}>
-          <label htmlFor={locationId} className={css.locationHeader}>
-            Location
-          </label>
-          <div className={css.locationWrapper}>
-            <svg width="20" height="20" className={css.icon}>
-              <use href={`${icon}#icon-location`}></use>
-            </svg>
+          <Field
+            type="text"
+            name="name"
+            placeholder="Name*"
+            className={css.name}
+          />
+          <ErrorMessage name="name" component="span" />
 
-            <Field
-              type="text"
-              name="location"
-              id={locationId}
-              className={css.locationInput}
-            ></Field>
-          </div>
+          <Field
+            type="email"
+            name="email"
+            placeholder="Email*"
+            className={css.input}
+          />
+          <ErrorMessage name="email" component="span" />
 
-          <ErrorMessage name="location" component="span"></ErrorMessage>
+          <Field
+            name="date"
+            className={css.input}
+            placeholder="Booking date*"
+            type="text"
+            onFocus={e => (e.target.type = "date")}
+            onBlur={e => (e.target.type = "text")}
+          />
+
+          <ErrorMessage name="date" component="span" />
+
+          <Field
+            as="textarea"
+            name="comment"
+            rows={4}
+            placeholder="Comment"
+            className={css.textarea}
+          />
+          <ErrorMessage name="comment" component="span" />
         </div>
 
-        <ButtonSearch className={css.searchButton}></ButtonSearch>
+        <ButtonSend className={css.sendButton} />
       </Form>
     </Formik>
   );

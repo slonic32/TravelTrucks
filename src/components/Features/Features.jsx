@@ -106,27 +106,27 @@ export default function Features() {
         </svg>
 
         <ul className={css.detailstext}>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Form</p>
             <p className={css.firstLetter}>{camper.form}</p>
           </li>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Length</p>
             <p className={css.firstLetter}>{camper.length}</p>
           </li>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Width</p>
             <p className={css.firstLetter}>{camper.width}</p>
           </li>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Height</p>
             <p className={css.firstLetter}>{camper.height}</p>
           </li>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Tank</p>
             <p className={css.firstLetter}>{camper.tank}</p>
           </li>
-          <li className={css.detaileline}>
+          <li className={css.detaileline} key={nanoid()}>
             <p>Consumption</p>
             <p className={css.firstLetter}>{camper.consumption}</p>
           </li>

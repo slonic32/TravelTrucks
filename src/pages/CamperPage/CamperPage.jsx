@@ -28,6 +28,17 @@ export default function CamperPage() {
       <CamperDetails></CamperDetails>
       <Menu></Menu>
 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1312"
+        height="2"
+        viewBox="0 0 1312 2"
+        fill="none"
+        className={css.divider}
+      >
+        <path d="M0 1H1312" stroke="#DADDE1" />
+      </svg>
+
       <div className={css.block}>
         <div className={css.leftBlock}>
           <Suspense fallback={<div>Loading...</div>}>

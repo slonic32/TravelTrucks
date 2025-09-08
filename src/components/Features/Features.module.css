@@ -7,8 +7,9 @@
 
   display: flex;
 
-  gap: 100px;
+  justify-content: space-between;
   flex-direction: column;
+  margin-top: 44px;
 }
 .propList {
   display: flex;
