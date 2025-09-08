@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers, perPage, toggleFavorite } from "./operations";
+import { fetchCampers, perPage } from "./operations";
+
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 function handlePending(state) {
   state.loading = true;
@@ -16,19 +19,24 @@ const campersSlice = createSlice({
     items: [],
     loading: false,
     error: null,
-    favorite: false,
+    favorites: [],
     page: 1,
     more: true,
   },
   reducers: {
-    changeFavorite(state, action) {
-      state.favorite = action.payload;
-    },
     changePage(state, action) {
       state.page = action.payload;
     },
     changeMore(state, action) {
       state.more = action.payload;
+    },
+    addFavorite(state, action) {
+      state.favorites.push(action.payload);
+    },
+    deleteFavorite(state, action) {
+      state.favorites = state.favorites.filter(
+        item => item.id != action.payload.id
+      );
     },
   },
   extraReducers: builder => {
@@ -48,32 +56,21 @@ const campersSlice = createSlice({
           state.more = false;
         }
       })
-      .addCase(fetchCampers.rejected, handleRejected)
-      //toggle favorite
-      .addCase(toggleFavorite.pending, handlePending)
-      .addCase(toggleFavorite.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = null;
-        if (state.favorite) {
-          const index = state.items.findIndex(
-            obj => obj._id === action.payload._id
-          );
-
-          if (index !== -1) {
-            state.items.splice(index, 1);
-          }
-        } else {
-          state.items = state.items.map(obj =>
-            obj._id === action.payload._id
-              ? { ...obj, favorite: !obj.favorite }
-              : obj
-          );
-        }
-      })
-      .addCase(toggleFavorite.rejected, handleRejected);
+      .addCase(fetchCampers.rejected, handleRejected);
   },
 });
 
-export const campersReducer = campersSlice.reducer;
+const campersPersistConfig = {
+  key: "favorites",
+  storage,
+  whitelist: ["favorites"],
+};
 
-export const { changeFavorite, changePage, changeMore } = campersSlice.actions;
+const persistedReducer = persistReducer(
+  campersPersistConfig,
+  campersSlice.reducer
+);
+
+export const campersReducer = persistedReducer;
+
+export const { changePage, changeMore } = campersSlice.actions;

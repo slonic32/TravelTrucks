@@ -4,7 +4,7 @@ import { fetchCampers } from "../../redux/campers/operations";
 import { changePage } from "../../redux/campers/slice";
 import { selectPage } from "../../redux/campers/selectors";
 
-export default function ButtonLoad() {
+export default function ButtonLoad({ className }) {
   const dispatch = useDispatch();
   const currentPage = useSelector(selectPage);
   const handleclick = () => {
@@ -12,7 +12,11 @@ export default function ButtonLoad() {
     dispatch(changePage(currentPage + 1));
   };
   return (
-    <button type="button" onClick={handleclick} className={css.buttonLoad}>
+    <button
+      type="button"
+      onClick={handleclick}
+      className={`${css.button} ${className || ""}`}
+    >
       Load more
     </button>
   );

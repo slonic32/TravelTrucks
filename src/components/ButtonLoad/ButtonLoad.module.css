@@ -1,16 +1,25 @@
-.buttonLoad {
+.button {
+  display: inline-flex;
   padding: 16px 32px;
   justify-content: center;
   align-items: center;
-  display: block;
+  gap: 10px;
+
   border-radius: 200px;
-  border: 1px solid rgba(71, 84, 103, 0.2);
-  color: var(--Main, #101828);
-  font-family: Inter;
+  border: 1px solid #dadde1;
+
+  color: #101828;
+
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.08px;
-  margin: 50px auto 0 auto;
+
+  cursor: pointer;
+}
+
+.button:active,
+.button:hover {
+  border-color: #d84343;
 }

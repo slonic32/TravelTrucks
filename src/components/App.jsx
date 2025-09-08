@@ -7,9 +7,9 @@ import Error from "./Error/Error";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 
-const Home = lazy(() => import("../pages/Home.jsx"));
-const Catalog = lazy(() => import("../pages/Catalog.jsx"));
-const Favorites = lazy(() => import("../pages/Favorites.jsx"));
+const Home = lazy(() => import("../pages/Home/Home.jsx"));
+const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
+const Favorites = lazy(() => import("../pages/Favorites/Favorites.jsx"));
 import SharedLayout from "./SharedLayout/SharedLayout";
 
 export default function App() {

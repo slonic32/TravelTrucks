@@ -4,3 +4,8 @@
   align-items: flex-start;
   gap: 32px;
 }
+
+.buttonLoad {
+  margin-top: 40px;
+  margin-left: 372px;
+}

@@ -1,17 +1,26 @@
-.buttonSearch {
-  display: inline-flex;
-  padding: 16px 60px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 200px;
-  background: #e44848;
-  color: #fff;
-  font-family: Inter;
+.button {
+  color: var(--color-White);
+
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.08px;
-  border: none;
+
+  display: flex;
+
+  padding: 16px;
+  width: 166px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--color-Red);
+
+  cursor: pointer;
+}
+
+.button:active,
+.button:hover {
+  background: var(--color-DarkRed);
 }

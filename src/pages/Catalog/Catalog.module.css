@@ -1,0 +1,7 @@
+.catalogView {
+  display: flex;
+  gap: 64px;
+  width: 1440px;
+  padding: 48px 64px;
+  margin: auto;
+}

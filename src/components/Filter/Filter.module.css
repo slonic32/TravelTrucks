@@ -7,26 +7,134 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  margin-bottom: 32px;
 }
 
 .locationHeader {
-  align-self: stretch;
-  color: rgba(16, 24, 40, 0.6);
-  font-family: Inter;
+  color: #6c717b;
+
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .locationInput {
+  border: none;
+  width: 292px;
+
+  color: #101828;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.locationWrapper {
   display: flex;
-  padding: 18px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 10px;
-  background: #f7f7f7;
+  align-items: center;
+  gap: 8px;
+
   width: 360px;
+  height: 56px;
+  padding: 18px 20px;
+
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.searchButton {
+  margin-top: 40px;
+}
+
+.filterHeader {
+  color: #475467;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 40px;
+}
+
+.filterGroup {
+  color: #101828;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: 32px;
+}
+
+.filterDivider {
+  width: 360px;
+  height: 2px;
+
+  background-color: #dadde1;
+  margin-top: 24px;
+}
+
+.iconOptions {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 12px;
+  margin-top: 24px;
+}
+
+.hiddenCheckbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.iconLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 112px;
+  height: 96px;
+
+  border-radius: 12px;
+  border: 1px solid #dadde1;
+  mix-blend-mode: multiply;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.iconSvg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.iconLabel:hover {
+  border-color: #e44848;
+}
+
+.selected {
+  border-color: #e44848;
+}
+
+.iconText {
+  color: #101828;
+  text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
 }

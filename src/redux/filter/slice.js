@@ -6,31 +6,15 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState: {
     location: "",
-    ac: false,
-    automatic: false,
-    kitchen: false,
-    tv: false,
-    wc: false,
+    options: [],
     type: "",
   },
   reducers: {
     changeLocation(state, action) {
       state.location = action.payload;
     },
-    changeAc(state, action) {
-      state.ac = action.payload;
-    },
-    changeAutomatic(state, action) {
-      state.automatic = action.payload;
-    },
-    changeKitchen(state, action) {
-      state.kitchen = action.payload;
-    },
-    changeTv(state, action) {
-      state.tv = action.payload;
-    },
-    changeWc(state, action) {
-      state.wc = action.payload;
+    setOptions(state, action) {
+      state.options = action.payload;
     },
     changeType(state, action) {
       state.type = action.payload;
@@ -41,7 +25,7 @@ const filtersSlice = createSlice({
 const filterPersistConfig = {
   key: "filter",
   storage,
-  whitelist: ["location", "ac", "automatic", "kitchen", "tv", "wc", "type"],
+  whitelist: ["location", "options", "type"],
 };
 
 const persistedReducer = persistReducer(
@@ -52,11 +36,7 @@ export const filtersReducer = persistedReducer;
 
 export const {
   changeLocation,
-  changeAc,
-  changeAutomatic,
-  changeKitchen,
-  changeTv,
-  changeWc,
+  setOptions,
+
   changeType,
-  changeFavorite,
 } = filtersSlice.actions;

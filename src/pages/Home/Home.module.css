@@ -1,0 +1,40 @@
+.home {
+  background-image: url(../../assets/home.png);
+  background-size: cover;
+  padding: 260px 64px;
+}
+
+@media (min-resolution: 192dpi) {
+  .home {
+    background-image: url(../../assets/home2x.png);
+  }
+}
+
+.container {
+  max-width: 1312px;
+  margin: auto;
+}
+
+.header {
+  color: var(--color-White);
+
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.text {
+  color: var(--color-White);
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+
+  margin-top: 16px;
+}
+
+.button {
+  margin-top: 40px;
+}

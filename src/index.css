@@ -1,5 +1,12 @@
+:root {
+  /* colors */
+  --color-White: #f7f7f7;
+  --color-Red: #e44848;
+  --color-DarkRed: #d84343;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-size: 18px;
   font-weight: 500;
@@ -36,4 +43,13 @@ input {
 a:active,
 a.active {
   color: #e44848;
+}
+
+.container {
+  width: 1312px;
+  margin: auto;
+}
+
+button {
+  border: none;
 }

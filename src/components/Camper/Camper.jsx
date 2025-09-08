@@ -2,7 +2,7 @@ import css from "./Camper.module.css";
 import ButtonMore from "../ButtonMore/ButtonMore";
 import icon from "../../assets/icon.svg";
 import { useDispatch } from "react-redux";
-import { toggleFavorite } from "../../redux/campers/operations";
+
 import PropsList from "../PropsList/PropsList";
 
 function camperImg(camper) {
@@ -31,9 +31,7 @@ function camperReview(camper) {
 
 export default function Camper({ camper }) {
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(toggleFavorite(camper));
-  };
+  const handleClick = () => {};
   return (
     <li className={css.camper}>
       <div className={css.camperCard}>

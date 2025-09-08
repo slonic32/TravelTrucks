@@ -16,7 +16,7 @@ export default function CamperList() {
           return <Camper key={camper.id} camper={camper} />;
         })}
       </ul>
-      {more && <ButtonLoad></ButtonLoad>}
+      {more && <ButtonLoad className={css.buttonLoad}></ButtonLoad>}
     </div>
   );
 }

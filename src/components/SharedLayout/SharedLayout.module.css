@@ -1,43 +1,26 @@
-.container {
-  max-width: 1440px;
-  margin: auto;
-  padding: 100px 64px;
-}
-
-.containerH {
-  max-width: 1440px;
-  margin: auto;
-  padding: 0 64px;
-}
-
 .header {
-  padding: 24px 0;
-  box-shadow: 3px 5px 5px gray;
+  display: flex;
+  width: 1440px;
+  padding: 24px 64px;
+  align-items: center;
+  gap: 450px;
+  margin: auto;
+  border-bottom: 1px solid #f2f4f7;
+  background: #f7f7f7;
 }
 
 .menu {
   display: flex;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .headerLink {
   color: #101828;
+  text-align: center;
 
-  font-family: Inter;
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 30px;
-
-  margin-left: 24px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 24px;
-  margin-left: 24px;
   font-weight: 500;
-  color: black;
+  line-height: 24px;
 }
