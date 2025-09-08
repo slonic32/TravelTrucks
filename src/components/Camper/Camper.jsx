@@ -1,14 +1,16 @@
 import css from "./Camper.module.css";
 import ButtonMore from "../ButtonMore/ButtonMore";
 import icon from "../../assets/icon.svg";
-import { useDispatch } from "react-redux";
+
+import defaultImg from "../../assets/camper.jpg";
 
 import PropsList from "../PropsList/PropsList";
 
 function camperImg(camper) {
-  const defaultImg = "/camper.jpg";
   if (Array.isArray(camper.gallery)) {
-    return camper.gallery[0] !== undefined ? camper.gallery[0] : defaultImg;
+    return camper.gallery[0].thumb !== undefined
+      ? camper.gallery[0].thumb
+      : defaultImg;
   }
 
   return defaultImg;
@@ -30,7 +32,8 @@ function camperReview(camper) {
 }
 
 export default function Camper({ camper }) {
-  const dispatch = useDispatch();
+  console.log(camper);
+
   const handleClick = () => {};
   return (
     <li className={css.camper}>

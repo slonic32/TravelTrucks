@@ -10,7 +10,7 @@ export default function CamperList() {
   const campers = useSelector(selectCampers);
   const more = useSelector(selectMore);
   return (
-    <div>
+    <div className={css.listBlock}>
       <ul className={css.camperList}>
         {campers.map(camper => {
           return <Camper key={camper.id} camper={camper} />;
