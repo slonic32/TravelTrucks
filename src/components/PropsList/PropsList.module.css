@@ -1,21 +1,7 @@
-.camperProps {
+.propList {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
-}
 
-.propListUp {
-  display: flex;
   align-items: flex-start;
   gap: 8px;
-  align-self: stretch;
-}
-
-.propListDown {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
+  flex-wrap: wrap;
 }

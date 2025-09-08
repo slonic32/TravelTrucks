@@ -1,5 +1,5 @@
-import { useEffect, lazy } from "react";
-import { useDispatch } from "react-redux";
+import { lazy } from "react";
+
 import { useSelector } from "react-redux";
 import { selectLoading, selectError } from "../redux/selectors.js";
 import Loader from "./Loader/Loader";
@@ -11,26 +11,26 @@ const Home = lazy(() => import("../pages/Home/Home.jsx"));
 const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
 const Favorites = lazy(() => import("../pages/Favorites/Favorites.jsx"));
 import SharedLayout from "./SharedLayout/SharedLayout";
+const CamperPage = lazy(() => import("../pages/CamperPage/CamperPage.jsx"));
 
 export default function App() {
-  const dispatch = useDispatch();
-
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   return (
     <div>
+      {loading && <Loader />}
+      {error && <Error />}
+
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/catalog/:camperId" element={<CamperPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-
-      {loading && <Loader />}
-      {error && <Error />}
     </div>
   );
 }

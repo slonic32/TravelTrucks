@@ -1,22 +1,28 @@
 import css from "./CampersList.module.css";
 import Camper from "../Camper/Camper";
 import { useSelector } from "react-redux";
-import { selectCampers } from "../../redux/campers/selectors";
-import ButtonLoad from "../ButtonLoad/ButtonLoad";
+import { selectFavorite } from "../../redux/campers/selectors";
 
-import { selectMore } from "../../redux/campers/selectors";
+export default function CamperList({ campers }) {
+  const favorites = useSelector(selectFavorite);
 
-export default function CamperList() {
-  const campers = useSelector(selectCampers);
-  const more = useSelector(selectMore);
   return (
     <div className={css.listBlock}>
-      <ul className={css.camperList}>
-        {campers.map(camper => {
-          return <Camper key={camper.id} camper={camper} />;
-        })}
-      </ul>
-      {more && <ButtonLoad className={css.buttonLoad}></ButtonLoad>}
+      {campers.length == 0 ? (
+        <p>No campers found.</p>
+      ) : (
+        <ul className={css.camperList}>
+          {campers.map(camper => {
+            return (
+              <Camper
+                key={camper.id}
+                camper={camper}
+                favorite={favorites.some(item => item.id === camper.id)}
+              />
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

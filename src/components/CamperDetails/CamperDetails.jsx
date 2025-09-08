@@ -1,31 +1,13 @@
-import css from "./Camper.module.css";
+import css from "./CamperDetails.module.css";
 import ButtonMore from "../ButtonMore/ButtonMore";
 import icon from "../../assets/icon.svg";
 
 import defaultImg from "../../assets/camper.jpg";
 
 import PropsList from "../PropsList/PropsList";
-import { useDispatch } from "react-redux";
-import { addFavorite, deleteFavorite } from "../../redux/campers/slice";
-import { useNavigate } from "react-router-dom";
 
-export default function Camper({ camper, favorite = false }) {
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    if (favorite) {
-      dispatch(deleteFavorite(camper));
-    } else {
-      dispatch(addFavorite(camper));
-    }
-  };
-
-  const navigate = useNavigate();
-
-  const goToDetails = () => {
-    navigate(`/catalog/${camper.id}`);
-  };
-
+export default function CamperDetails({ camper }) {
+  if (!camper || Object.keys(camper).length === 0) return null;
   return (
     <li className={css.camper}>
       <div className={css.camperImg}>
@@ -41,19 +23,6 @@ export default function Camper({ camper, favorite = false }) {
             <h2 className={css.camperName}>{camper.name}</h2>
             <div className={css.priceBlock}>
               <p className={css.camperPrice}>€{camper.price.toFixed(2)}</p>
-              <button
-                className={css.camperFav}
-                type="button"
-                onClick={handleClick}
-              >
-                <svg
-                  width="26"
-                  height="24"
-                  className={favorite ? css.favIconY : css.favIconN}
-                >
-                  <use href={`${icon}#icon-heart`}></use>
-                </svg>
-              </button>
             </div>
           </div>
           <div className={css.headerDown}>
@@ -76,7 +45,7 @@ export default function Camper({ camper, favorite = false }) {
         <p className={css.camperText}>{camper.description}</p>
         <PropsList camper={camper}></PropsList>
 
-        <ButtonMore action={goToDetails}></ButtonMore>
+        <ButtonMore></ButtonMore>
       </div>
     </li>
   );

@@ -1,21 +1,15 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchCampers } from "../../redux/campers/operations";
-
 import css from "./Favorites.module.css";
 
 import CamperList from "../../components/CampersList/CampersList";
+import { useSelector } from "react-redux";
+import { selectFavorite } from "../../redux/campers/selectors";
 
 export default function Favorites() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCampers({ page: 1 }));
-  }, [dispatch]);
+  const campers = useSelector(selectFavorite);
 
   return (
     <div className={css.favoriteStyle}>
-      <CamperList></CamperList>
+      <CamperList campers={campers}></CamperList>
     </div>
   );
 }

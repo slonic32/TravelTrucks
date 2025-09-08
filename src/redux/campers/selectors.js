@@ -11,7 +11,7 @@ export function selectCampersError(state) {
 }
 
 export function selectFavorite(state) {
-  return state.campers.favorite;
+  return state.campers.favorites;
 }
 
 export function selectPage(state) {
@@ -20,4 +20,8 @@ export function selectPage(state) {
 
 export function selectMore(state) {
   return state.campers.more;
+}
+
+export function selectCamper(state) {
+  return state.campers.camper;
 }

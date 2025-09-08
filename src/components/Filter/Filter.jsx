@@ -35,15 +35,15 @@ export default function Filter() {
   const locationId = useId();
 
   const equipmentOptions = [
-    { value: "ac", iconId: "icon-ac", label: "AC" },
+    { value: "AC", iconId: "icon-ac", label: "AC" },
     { value: "automatic", iconId: "icon-automatic", label: "Automatic" },
     { value: "kitchen", iconId: "icon-kitchen", label: "Kitchen" },
-    { value: "tv", iconId: "icon-tv", label: "TV" },
+    { value: "TV", iconId: "icon-tv", label: "TV" },
     { value: "bathroom", iconId: "icon-bathroom", label: "Bathroom" },
   ];
 
   const typeOptions = [
-    { value: "van", iconId: "icon-van", label: "Van" },
+    { value: "panelTruck", iconId: "icon-van", label: "Van" },
     {
       value: "fullyIntegrated",
       iconId: "icon-integrated",
@@ -59,13 +59,17 @@ export default function Filter() {
     dispatch(fetchCampers({ page: 1 }));
   }
 
+  function handleCheck(values) {
+    console.log(values.target.value);
+  }
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={filterSchema}
     >
-      {({ values }) => (
+      {({ values, setFieldValue }) => (
         <Form className={css.filterBox}>
           <div className={css.locationContainer}>
             <label htmlFor={locationId} className={css.locationHeader}>
@@ -128,13 +132,16 @@ export default function Filter() {
                   key={value}
                   className={`${css.iconLabel} ${checked ? css.selected : ""}`}
                 >
-                  {/* Hide the real radio; reuse your hidden class */}
                   <Field
                     name="type"
                     type="radio"
                     value={value}
                     checked={checked}
                     className={css.hiddenCheckbox}
+                    onClick={() => {
+                      // toggle: clear if already checked
+                      setFieldValue("type", checked ? "" : type);
+                    }}
                   ></Field>
 
                   <svg

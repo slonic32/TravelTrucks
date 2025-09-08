@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers, perPage } from "./operations";
+import { fetchCampers, perPage, fetchDetails } from "./operations";
 
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -21,15 +21,10 @@ const campersSlice = createSlice({
     error: null,
     favorites: [],
     page: 1,
-    more: true,
+    more: false,
+    camper: {},
   },
   reducers: {
-    changePage(state, action) {
-      state.page = action.payload;
-    },
-    changeMore(state, action) {
-      state.more = action.payload;
-    },
     addFavorite(state, action) {
       state.favorites.push(action.payload);
     },
@@ -46,17 +41,32 @@ const campersSlice = createSlice({
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        if (state.page === 1) {
+
+        if (action.payload.page === 1) {
           state.items = action.payload.items;
-          state.more = true;
         } else {
           state.items.push(...action.payload.items);
         }
-        if (action.payload.total < perPage) {
+        if (action.payload.total <= perPage * action.payload.page) {
           state.more = false;
+        } else {
+          state.more = true;
         }
+        state.page = action.payload.page;
       })
-      .addCase(fetchCampers.rejected, handleRejected);
+      .addCase(fetchCampers.rejected, handleRejected)
+      .addCase(fetchDetails.pending, handlePending)
+      .addCase(fetchDetails.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.camper = action.payload;
+        } else {
+          state.camper = {};
+        }
+
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchDetails.rejected, handleRejected);
   },
 });
 
@@ -73,4 +83,4 @@ const persistedReducer = persistReducer(
 
 export const campersReducer = persistedReducer;
 
-export const { changePage, changeMore } = campersSlice.actions;
+export const { addFavorite, deleteFavorite } = campersSlice.actions;
