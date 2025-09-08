@@ -1,0 +1,17 @@
+.container {
+  width: 1440px;
+
+  padding: 48px 64px;
+  margin: auto;
+}
+
+.block {
+  display: flex;
+  gap: 40px;
+  margin-top: 44px;
+}
+
+.leftBlock {
+  width: 631px;
+  height: 588px;
+}

@@ -6,7 +6,8 @@ import { Suspense, useEffect, useState } from "react";
 import { fetchDetails } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCamper } from "../../redux/campers/selectors";
-
+import Menu from "../../components/Menu/Menu";
+import Book from "../../components/Book/Book";
 import { lazy } from "react";
 
 const CamperDetails = lazy(() =>
@@ -22,15 +23,20 @@ export default function CamperPage() {
     dispatch(fetchDetails({ camperId }));
   }, [dispatch, camperId]);
 
-  const camper = useSelector(selectCamper);
-
   return (
-    <>
-      <CamperDetails camper={camper}></CamperDetails>
+    <div className={css.container}>
+      <CamperDetails></CamperDetails>
+      <Menu></Menu>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-    </>
+      <div className={css.block}>
+        <div className={css.leftBlock}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </div>
+
+        <Book />
+      </div>
+    </div>
   );
 }

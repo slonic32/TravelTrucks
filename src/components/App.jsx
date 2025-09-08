@@ -12,6 +12,8 @@ const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
 const Favorites = lazy(() => import("../pages/Favorites/Favorites.jsx"));
 import SharedLayout from "./SharedLayout/SharedLayout";
 const CamperPage = lazy(() => import("../pages/CamperPage/CamperPage.jsx"));
+const Features = lazy(() => import("./Features/Features.jsx"));
+const Reviews = lazy(() => import("./Reviews/Reviews.jsx"));
 
 export default function App() {
   const loading = useSelector(selectLoading);
@@ -27,7 +29,10 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/catalog/:camperId" element={<CamperPage />} />
+          <Route path="/catalog/:camperId" element={<CamperPage />}>
+            <Route path="features" element={<Features />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

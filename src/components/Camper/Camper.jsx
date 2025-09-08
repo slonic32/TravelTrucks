@@ -30,7 +30,7 @@ export default function Camper({ camper, favorite = false }) {
     <li className={css.camper}>
       <div className={css.camperImg}>
         <img
-          src={camper.gallery[0].thumb || defaultImg}
+          src={camper.gallery[0].thumb || `${defaultImg}`}
           alt={camper.name}
           className={css.image}
         />

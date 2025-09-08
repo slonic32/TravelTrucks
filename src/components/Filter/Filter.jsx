@@ -59,10 +59,6 @@ export default function Filter() {
     dispatch(fetchCampers({ page: 1 }));
   }
 
-  function handleCheck(values) {
-    console.log(values.target.value);
-  }
-
   return (
     <Formik
       initialValues={initialValues}
